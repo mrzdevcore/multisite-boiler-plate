@@ -1,0 +1,72 @@
+h1,h2,h3,h4 {
+  font-family: $font_normal;
+  text-transform: uppercase;
+}
+h2,h3,h4 {letter-spacing: 1px;}
+h3,h4 {
+  font-weight: 700;
+}
+h1 {
+  font-size: 81px;
+  line-height: 86px;
+  word-spacing: 10px;
+  @include respond-to('medium') {
+    font-size: 40px;
+    line-height: 40px;
+  }
+}
+h2 {
+  font-size: 41px;
+  line-height: 51px;
+  @include respond-to('medium') {
+    font-size: 24px;
+    line-height: 24px;
+  }
+}
+h3 {
+  font-size: 31px;
+  line-height: 40px;
+  strong { font-weight: 700;}
+  @include respond-to('medium')  {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+h4 {
+  font-size: 24px;
+  line-height: 30px;
+  @include respond-to('medium')  {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+.text {
+  &--large {
+    font-size: 18px;
+    line-height: 22px;
+    @include respond-to('medium')  {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+  &--medium {
+    font-size: 15px;
+    line-height: 26px;
+    @include respond-to('medium')  {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+  &--small {
+    font-size: 13px;
+    line-height: 16px;
+    @include respond-to('medium')  {
+      font-size: 10px;
+      line-height: 14px;
+    }
+  }
+  &--bold {font-weight: 700;}
+  &--regular {font-weight: 300;}
+  &--thin {font-weight: 200;}
+}

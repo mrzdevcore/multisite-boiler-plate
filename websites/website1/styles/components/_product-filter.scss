@@ -1,0 +1,310 @@
+.product-filter {
+  background-color: $primary;
+  color: $white;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 9%;
+  position: relative;
+  text-transform: uppercase;
+
+  @include fixOn(IE) {
+    margin: 0 auto;
+    max-width: $breakpoint-large;
+    width: 100%;
+  }
+}
+
+.filter {
+  @include respond-to('large') {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+  }
+
+  &-by {
+    font-size: 25px;
+    letter-spacing: 1px;
+    padding-bottom: 21px;
+    padding-top: 21px;
+    word-spacing: 3px;
+  }
+
+  &__list {
+    display: none;
+    @include respond-to('medium') {
+      border-bottom: 1px solid $filter-border-color;
+      margin-bottom: 18px;
+      padding-bottom: 6px;
+      &:last-child {
+        border-bottom: none;
+        padding-bottom: 0px;
+      }
+    }
+
+    @include respond-to('large') {
+      display: block;
+      cursor: pointer;
+      letter-spacing: 1px;
+      padding-bottom: 21px;
+      padding-left: 15px;
+      padding-right: 70px;
+      padding-top: 26px;
+      position: relative;
+
+      &:last-of-type::after {
+        display: none;
+      }
+      &::after {
+        border-style: solid;
+        border-width: 0 0 0 1px;
+        content: "";
+        height: 50%;
+        position: absolute;
+        right: 0;
+        top: 25%;
+      }
+
+      &:hover .subfilter {
+        display: block;
+      }
+
+      &:hover .chevron:before {
+        transform: rotate(315deg);
+        top: 0.5em;
+      }
+    }
+
+
+  }
+
+  &__text {
+    text-transform: uppercase;
+
+    @include respond-to('medium') {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 22px;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      word-spacing: 2px;
+    }
+
+    @include respond-to('large') {
+      padding-left: 15px;
+      letter-spacing: 1px;
+      word-spacing: 1px;
+    }
+    .chevron {
+      display: none;
+
+      @include respond-to('large') {
+        display: inline;
+        position: absolute;
+        right: 34px;;
+      }
+    }
+  }
+
+  &__clear, &__applied, &__applied--text {
+    display: inline;
+    padding-right: 20px;
+  }
+
+  &__clear {
+    color: $primary;
+    cursor: pointer;
+    margin-right: 36px;
+
+    &:hover {
+      font-weight: 500;
+    }
+  }
+
+  &__applied--text {
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 52px;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+}
+
+.subfilter {
+  @include respond-to('medium') {
+    padding-left: 15px;
+
+    span {
+      padding-right: 10px;
+    }
+
+    .btn-close {
+      &::before, &::after {
+        background-color: $text;
+      }
+    }
+  }
+
+  @include respond-to('large') {
+    background-color: $bg-primary;
+    color: $text;
+    display: none;
+    left: 0;
+    padding-left: 15px;
+    padding-top: 15px;
+    position: absolute;
+    top: 72px;
+    width: 100%;
+    z-index: 1;
+  }
+
+  &__text.mobile.checked {
+    font-weight: 700;
+  }
+
+  &__text {
+    text-transform: uppercase;
+
+    @include respond-to('medium') {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 28px;
+      margin-bottom: 10px;
+      padding-bottom: 0px;
+      padding-top: 1px;
+    }
+
+    @include respond-to('large') {
+      cursor: pointer;
+      padding-bottom: 15px;
+      padding-top: 15px;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}
+
+.product-filter-applied {
+  display: none;
+
+  @include respond-to('large') {
+    background-color: $bg-secondary;
+    color: $text;
+    letter-spacing: 2px;
+    padding: 20px 9%;
+    text-transform: uppercase;
+    word-spacing: 1px;
+  }
+
+  @include fixOn(IE) {
+    margin: 0 auto;
+    max-width: $breakpoint-large;
+    width: 100%;
+  }
+}
+
+.product-count {
+  font-weight: 700;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  text-align: center;
+
+  @include respond-to('large') {
+    text-align: left;
+    padding-left: 15px;
+  }
+}
+
+.filter-mobile-handle {
+  position: absolute;
+  right: 10%;
+  top: 46%;
+
+  &::after, &::before {
+    background-color: $white;
+    height: 2px;
+    width: 15px;
+    content: '';
+    cursor: pointer;
+    position: absolute;
+    top: 45%;
+    right: -10px;
+  }
+  &::after {
+    transform: rotate(180deg);
+  }
+
+  &::before {
+    transform: rotate(90deg);
+  }
+
+  @include respond-to('large') {
+    display: none;
+  }
+
+}
+
+.filter-popup {
+  overflow: scroll;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  .mfp-close {
+    color: $white;
+  }
+
+  .filter__list {
+    display: block;
+  }
+
+  .popup {
+    &-title {
+      text-transform: uppercase;
+    }
+    &-action {
+      //display: flex;
+      //padding: 15px 15px 0 15px;
+      button {
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+.popup {
+  &-title {
+    background-color: $primary;
+    color: $white;
+    padding: 10px;
+    width: 100%;
+  }
+  &-action {
+    background-color: $bg-secondary;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    text-align: center;
+    width: 100%;
+
+    &--fixed {
+      bottom: 0;
+      position: fixed;
+      // height: 100%;
+    }
+  }
+
+  &-content {
+    background-color: $bg-primary;
+    padding: 15px;
+    padding-top: 42px;
+    overflow: scroll;
+  }
+
+}
+
+.js-btn-see-products, .js-btn-clear-filter {
+  margin-bottom: 10px;
+}

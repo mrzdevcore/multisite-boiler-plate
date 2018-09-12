@@ -1,0 +1,25 @@
+mixin img(options)
+  - var classe = options.classe || ""
+  - var imgClass = options.imgClass || ""
+  - var desktop = options.desktop || ""
+  - var mobile = options.mobile
+  - var mobileImageBreakpoint  = options.mobileImageBreakpoint || "768px"
+  - var alt = options.alt || ""
+  - var lazyLoad = options.lazyLoad || false
+  - var mobileFirst = options.mobileFirst || false
+  - var temp = ""
+
+  picture(class = classe)
+    if lazyLoad
+      img(alt=alt, data-src="/images/" + desktop, src=require("../assets/images/default/img-1x1-transparent.png"), class=imgClass)
+      if options.hasLoop
+        .loop.icon-icon-search-white
+    else
+      if mobile && !mobileFirst
+        source(srcset="/images/" + mobile media="(max-width:" + mobileImageBreakpoint + ")")
+      else if mobile && mobileFirst
+        - temp = desktop
+        - desktop = mobile
+        - mobile = temp
+        source(srcset="/images/" + mobile media="(min-width:" + mobileImageBreakpoint + ")")
+      img(alt=alt, src='/images/' + desktop, class=imgClass)

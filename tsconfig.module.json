@@ -1,0 +1,23 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "strict": false,
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "baseUrl": "."
+  },
+  "include": [
+    "commons/**/*.ts",
+    "programs/**/*.tsx",
+    "commons/**/*.vue"
+  ],
+  "exclude": [
+    "node_modules",
+    "/**/*"
+  ]
+}

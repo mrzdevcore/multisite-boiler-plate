@@ -1,0 +1,66 @@
+
+/* switch-bar */
+
+.switch {
+  border: 2px solid $primary;
+  display: inline-block;
+  position: relative;
+  text-transform: uppercase;
+
+  &-container {
+    margin: 20px auto;
+    text-align: center;
+    
+    @include respond-to('large') {
+      margin: 45px auto;
+    }
+  }
+
+  &-input {
+    display: none;
+  }
+  &-label {
+    position: relative;
+    display: block;
+    padding: 0 20px;
+    float:left;
+    font-size: 18px;
+    font-weight: 400;
+    height: 100%;
+    color: $primary;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 1;
+
+    &::after {
+      display: none;
+    }
+
+    @include respond-to('large') {
+      padding: 0 40px;
+    }
+  }
+
+  .switch-input:checked + .switch-label {
+    background-color: $primary;
+    color: $white;
+  }
+
+  span {
+    position:absolute;
+    top: 0px;
+    left: 0;
+    width: 50%;
+    height: 48px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    background-color: $primary;
+    transform:translate(0);
+  }
+  .switch-2:checked ~ span {
+    left: auto;
+    right: 0;
+  }
+}

@@ -1,0 +1,43 @@
+mixin homePageReview(options)
+  - var additionalClass = options.additionalClass || ""
+
+  .content-section.section--review(class =additionalClass)
+    h1.home-product-title.review-heading
+      span what people are saying
+      | about nutro
+    .content-review.js-review-rating
+      +Review({
+        name:"Bailey",
+        country:"London, UK",
+        date:"21-01-2018",
+        date_side: "Husky",
+        titlereview:"My dog Bailey approves!",
+        description:"\"I think this product was a great choice because my husky who is a picky eater loved it!\"",
+        typeRating :"no-click"
+      })
+      +Review({
+        name:"Ray",
+        country:"Birmingham, UK",
+        date:"21-01-2018",
+        date_side: "Husky",
+        titlereview:"My dog Bailey approves!",
+        description:"\"This is an incredibly good dog food that we originally got on recommendation from our vet.This is an incredibly good dog food that we originally got on recommendation from our vet.\"",
+        typeRating :"no-click"
+      })
+      +Review({
+        name:"Nick Smith",
+        country:"Hannover, DE",
+        date:"21-01-2018",
+        date_side: "Husky",
+        titlereview:"Dog loves it",
+        description:"\"We bought this dog food for our young dog with sensitive stomach issues and it worked wonders.\"",
+        typeRating :"no-click"
+      })
+    .content-review-btn
+      +Btn({
+        type: "link",
+        href: "#",
+        text: "MORE REVIEWS",
+        class: "btn btn btn--primary btn--medium",
+        id: "more-review"
+      })

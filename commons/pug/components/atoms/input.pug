@@ -1,0 +1,24 @@
+mixin Input(options)
+  - type = options.type || "text"
+  - classInput = options.class || ""
+  - id = options.id || ""
+  - name = options.name || ""
+  - placeholder = options.placeholder || ""
+  - label = options.label || ""
+  - classLabel = options.classLabel || ""
+  - dataTheme = options.dataTheme || ""
+
+  if type == "text" || type == "password" || type == "email"
+    input(class=classInput, type=type, placeholder=placeholder, id = id, aria-describedby=id, name=name, data-theme=dataTheme, aria-labelledby=id)&attributes(attributes)
+  if type == "checkbox" || type == "radio"
+    input(id=id, class=classInput, type=type, aria-labelledby=id, name=name, data-theme=dataTheme)&attributes(attributes)
+    label(for=id, class="label-checkbox", aria-labelledby=id, data-type="checkbox", data-theme=dataTheme)
+      if label != ""
+        span(class=classLabel, aria-labelledby=id, data-type="checkbox", data-theme=dataTheme)= label
+  if type == "radioCarre"
+    input(id=id, class=classInput, type="radio", aria-labelledby=id, name=name, data-theme=dataTheme,data-radio-type="radioCarre")&attributes(attributes)
+    label(for=id, class="label-checkbox", aria-labelledby=id, data-type="checkbox", data-theme=dataTheme)
+      if label != ""
+        span(class=classLabel, aria-labelledby=id, data-type="checkbox", data-theme=dataTheme)= label
+  if type == "textarea"
+    textarea(class=classInput, placeholder=placeholder, id = id, name=name, data-theme=dataTheme,rows="4" cols="50", aria-labelledby=id)&attributes(attributes)

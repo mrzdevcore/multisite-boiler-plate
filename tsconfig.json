@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      "target": "es5",
+      "module": "esnext",
+      "moduleResolution": "node",
+      "experimentalDecorators": true,
+      "importHelpers": true,
+      "strictNullChecks": false,
+      "lib": [
+        "dom",
+        "es5",
+        "es2015.promise",
+        "es2015"
+      ]
+    }
+}

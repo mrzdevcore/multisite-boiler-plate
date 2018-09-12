@@ -1,0 +1,30 @@
+{
+  "hosting": {
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/api/feature/ratingsandreviews/GetReviewStatisticsForProducts",
+        "function": "reviewStatisticsForProducts"
+      },
+      {
+        "source": "/api/feature/ratingsandreviews/GetReviews",
+        "function": "getReviews"
+      },
+      {
+        "source": "/pageDetail-R&R.html/google7b7485f1e29419ab.html",
+        "function": "googleverification"
+      }
+    ]
+  },
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "functions": {
+    "source": "functions"
+  }
+}

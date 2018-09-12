@@ -1,0 +1,54 @@
+.home {
+  &-product-title {
+    font-weight: 300;
+    text-align: center;
+    span, strong {
+      color: $primary;
+      display: block;
+      font-weight: 700;
+    }
+
+    @include respond-to('large') {
+      font-size: 30px;
+      letter-spacing: 1px;
+      line-height: 41px;
+      word-spacing: 2px;
+    }
+
+    @include respond-to('medium') {
+      font-size: 25px;
+      letter-spacing: 1px;
+      line-height: 34px;
+      word-spacing: 2px;
+    }
+
+    @include respond-to('small') {
+      font-size: 22px;
+      letter-spacing: 1px;
+      line-height: 24px;
+      word-spacing: 2px;
+      margin: 0 -30px;
+    }
+  }
+
+  &-product-list {
+    text-align: center;
+    @include respond-to('large') {
+      margin-top: 68px;
+    }
+  }
+}
+
+.sup-text {
+  font-size: 25px;
+  position: relative;
+  top: -9px;
+  @include respond-to('medium') {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  @include respond-to('large') {
+    top: -15px;
+  }
+}

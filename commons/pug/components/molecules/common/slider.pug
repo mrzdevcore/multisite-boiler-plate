@@ -1,0 +1,76 @@
+mixin sliderTips(options)
+
+  - var firstBox = options.firstBox
+  - var heading = options.heading || ""
+  - var text = options.text || ""
+  - var nbr = options.nbr || 4 
+
+  +benefits({
+    titleOnly: true,
+    heading:'<strong>More tips</strong><br>from nutro'
+  })
+  .slider-container
+    .slider-responsive
+      if nbr === 4
+        .slider-content
+          +articleBox({ 
+            firstArticle: true, 
+            number: '6', 
+            title: '<span>SWITCHING YOUR DOG FOOD IN SIX DAYS : </span>NUTRO™ DOG HEALTH & INFORMATION RESOURCES - THE NUTRO COMPANY', 
+            desc: 'Slowly transition your pet to a clean food diet with Nutro™ so that they can adapt to the change with ease. Depending on your pet’s sensitivity to change, we suggest blending increasing amounts of the new Nutro™ clean food recipe with your old dog food for six days.', 
+            href: '#', 
+            isArticle: true,
+            articleImg: { 
+              img: '/images/editorial/dog-article.jpg', 
+              alt: 'packshot' 
+            } 
+          })
+      .slider-content
+        +articleBox({  
+          title: '<span>SIX DAYS : </span>NUTRO™ DOG HEALTH & INFORMATION RESOURCES - THE NUTRO COMPANY',
+          desc: 'Slowly transition your pet to a clean food diet with Nutro™ so that they can adapt to the change with ease. Depending on your pet’s sensitivity to change, we suggest blending increasing amounts of the new Nutro™ clean food recipe with your old dog food for six days.', 
+          href: '#',
+          isArticle: true,
+          articleImg: { 
+            img: '/images/editorial/dog-article.jpg', 
+            alt: 'packshot' 
+          } 
+        })(class="article-container")
+      .slider-content
+        +articleBox({  
+          title: '<span>SWITCHING YOUR DOG SIX DAYS : </span>NUTRO™ DOG HEALTH ',
+          desc: 'with Nutro™ so that they can adapt to the change with ease. Depending on your pet’s sensitivity to change, we suggest blending increasing amounts of the new Nutro™ clean food recipe with your old dog food for six days.', 
+          href: '#',
+          isArticle: true,
+          articleImg: { 
+            img: '/images/editorial/dog-article.jpg', 
+            alt: 'packshot' 
+          } 
+        })(class="article-container")
+      .slider-content
+        +articleBox({  
+          title: '<span>SWITCHING YOUR DOG FOOD IN SIX DAYS : </span>NUTRO™ DOG HEALTH & INFORMATION RESOURCES - THE NUTRO COMPANY', 
+          desc: 'Slowly transition your pet to a clean food diet with Nutro™ so that they can adapt to the change with ease. Depending on your pet’s sensitivity.', 
+          href: '#',
+          isVideo: true,
+          articleImg: { 
+            img: '/images/editorial/dog-article.jpg', 
+            alt: 'packshot' 
+          } 
+        })(class="article-container")
+      .slider-content
+        +articleBox({ 
+          title: '<span>SWITCHING  : </span>NUTRO™', 
+          desc: 'Thanks to modern veterinary.', 
+          href: '#', 
+          isArticle: true,
+          articleImg: { 
+            img: '/images/editorial/dog-article.jpg', 
+            alt: 'packshot' 
+          } 
+        })(class="article-container")
+  .see-all
+    +Btn({
+      text: "see all tips",
+      class: "btn--primary btn--medium"
+    })

@@ -1,0 +1,120 @@
+//String Replace
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+//Webfont
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff ttf svg) {
+  $src: null;
+
+  $extmods: (
+    eot: "?",
+    svg: "#" + str-replace($name, " ", "_")
+  );
+
+  $formats: (
+    otf: "opentype",
+    ttf: "truetype"
+  );
+
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}
+
+//  Responsive (change name to respond-to to avoid foundation conflict because he also has a brekpoint mixin)
+@mixin respond-to($point) {
+  @if $point == large {
+    @media (min-width: $breakpoint-medium + 1) { @content; }
+  }
+  @else if $point == under-content-container {
+    @media (max-width: $content-container-width) { @content; }
+  }
+  @else if $point == medium {
+    @media (max-width: $breakpoint-medium) { @content; }
+  }
+  @else if $point == small {
+    @media (max-width: $breakpoint-small)  { @content; }
+  }
+  @else if $point == larger {
+    @media (min-width: $breakpoint-large) { @content; }
+  }
+  @else if $point == small-desktop {
+    @media (min-width: $breakpoint-medium + 1) and (max-width:$breakpoint-small-desktop) { @content; }
+  }
+  @else if $point == middle {
+    @media (min-width: $breakpoint-medium + 1) and (max-width:$breakpoint-middle-desktop) { @content; }
+  }
+  @else if $point == small-tablet {
+    @media (min-width: $breakpoint-small) and (max-width:$breakpoint-medium) { @content; }
+  }
+  @else if $point == tablet {
+    @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large){ @content; }
+  }
+  @else if $point == iphone5 {
+    @media (max-width: $breakpoint-iphone5) { @content; }
+  }
+  @else if $point == desktop {
+    @media (min-width: $breakpoint-small-desktop + 1) and (max-width: $breakpoint-large) { @content; }
+  }
+  @else if $point == phone {
+    @media (max-width: $breakpoint-phone) { @content; }
+  }
+}
+
+//Border-Radius
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+  //background-clip: padding-box;
+}
+
+//Box-sizing
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model;
+     -moz-box-sizing: $box-model;
+          box-sizing: $box-model;
+}
+
+// Transition
+@mixin transition($transition-property, $transition-time, $method) {
+  -webkit-transition: $transition-property $transition-time $method;
+     -moz-transition: $transition-property $transition-time $method;
+      -ms-transition: $transition-property $transition-time $method;
+       -o-transition: $transition-property $transition-time $method;
+          transition: $transition-property $transition-time $method;
+}
+
+//Appearance
+@mixin appearance($value) {
+  -webkit-appearance: $value;
+     -moz-appearance: $value;
+          appearance: $value;
+}
+
+//
+@mixin fixOn($browser) {
+  @if $browser == IE {
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { @content; }
+  }
+  @else if $browser == EDGE {
+    @supports (-ms-ime-align: auto) { @content; }
+  }
+}

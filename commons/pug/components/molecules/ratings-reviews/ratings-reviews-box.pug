@@ -1,0 +1,15 @@
+mixin ratingsReviewsBox(options)
+  - var imgBackground = options.background || "/images/static/discover-desktop.jpg"
+  - var additionalClass = options.additionalClass || ""
+  .ratings-reviews-box(class=additionalClass)
+    .discover-section(style=`background-image: url('${imgBackground}');`)
+      .discover-content
+        .discover-text
+          h2!= 'Has your pet tried nutro?<br><strong>Share your thoughts.</strong>'
+        .discover-btn
+          +Btn({
+            text: "Write review",
+            class: "btn--primary btn--small js-rr-review",
+            type: "link",
+            href: "#"
+          })

@@ -1,0 +1,28 @@
+mixin mainNavigation
+  nav
+    ul.left-nav
+      li(class="main-menu has-submenu js-has-submenu" data-menu-for="dog")
+        a(href="/product-list.html") For Dogse
+        .menu--dropdown
+          .menu--dropdown__content
+            ul.menu-content
+              li.parent-menu
+                a.parent-menu__link.js-parent-menu__link(href="/product-list.html") All dog food
+              li.parent-menu
+                a.parent-menu__link.parent-menu--item.js-parent-menu__link.js-dropdown(href="#") Dog food reviews
+                ul.child-menu-container.js-child-menu-container
+                  li.child-menu
+                    a.child-menu__link(href="/product-reviews.html" ) Dog food reviews
+                  li.child-menu.last-child
+                    a.child-menu__link(href="/write-reviews.html") Read the review
+    span.main-logo.js-main-logo: a(href="/index.html" data-is-hp="false") write a review
+    ul.right-nav
+      li(class="main-menu js-main-menu--offer"  data-menu-for="offer" )
+        a(href="/offer-list.html" ) Why GREENIES
+        .menu--dropdown
+          .menu--dropdown__content
+            ul.menu-content
+              li.parent-menu
+                a.parent-menu__link.js-parent-menu__link(href="/product-list.html") Our philosophu
+              li.parent-menu.last-child
+                a.parent-menu__link.js-parent-menu__link.js-dropdown(href="/product-list.html") Happy & healthy petcare

@@ -1,0 +1,7 @@
+{
+    "rules": {
+        "no-duplicate-imports": true,
+        "no-unused-variable": true,
+        "no-any": true
+    }
+}

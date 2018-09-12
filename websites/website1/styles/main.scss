@@ -1,0 +1,38 @@
+// VENDORS
+@import '../../../bower_components/slick-carousel/slick/slick.scss';
+// @import '../../bower_components/magnific-popup/src/css/_settings.scss';
+@import '../../../bower_components/magnific-popup/src/css/main.scss';
+
+
+@import 'critical/default';
+
+//- MODULES - Re-usable site elements
+@import 'modules/_variables';
+@import 'modules/_mixins';
+@import 'modules/_section';
+@import 'modules/_box';
+@import 'modules/_img';
+
+// - ATOMS - smallest components
+@import 'atoms/_overlapping-box';
+@import 'atoms/_radio-choice';
+
+// Site specific styles
+//@import 'base/_icons';
+@import 'base/_typography';
+@import 'base/_btn';
+@import 'base/_input';
+@import 'base/_utils';
+@import 'base/_loading';
+@import 'base/_dropdown';
+@import 'base/_footer-script';
+
+// Components
+@import 'components/_pack-product';
+@import 'components/_review';
+@import 'components/_slider';
+@import 'components/_benefits';
+
+//pages
+@import 'pages/home';
+@import 'pages/editorial-landing';

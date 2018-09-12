@@ -1,0 +1,7 @@
+mixin bannerOffer(options)
+  - var desktop = options.desktop || ""
+  - var mobile = options.mobile || ""
+  - var href = options.href || "/mbg-uk.html"
+
+  .banner.banner--offer.banner--home(data-bg-desktop=desktop, data-bg-mobile=mobile)
+    a.banner__link(href=href)

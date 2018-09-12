@@ -1,0 +1,16 @@
+mixin benefits(options)
+  - var heading = options.heading || ""
+  - var titleOnly = options.titleOnly
+  - var title = options.title || ""
+  - var text = options.text || ""
+  - var imgUrl = options.imgUrl || ""
+
+  if titleOnly
+    h3.benefits-heading!= heading
+  else
+    a.benefits(href="#")
+      .benefits-img
+        img(src=imgUrl, alt="benefit image")
+      .benefits-text
+        h3!= title
+        p!= text

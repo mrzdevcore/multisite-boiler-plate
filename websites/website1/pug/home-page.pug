@@ -1,0 +1,33 @@
+extends ./layout/layout.pug
+
+block vars
+    - var bodyClass = 'home-page'
+    - var pageTitle = 'Home';
+
+block content
+  //- Hero Section
+  +homePageHero({
+    bgDesktop: require("../assets/images/home/banner-home.jpg"),
+    bgMobile: require("../assets/images/home/banner-home-mobile.jpg"),
+    bgDesktopDE: require("../assets/images/home/banner-de.jpg"),
+    bgMobileDE: require("../assets/images/home/banner-de-mobile.jpg"),
+    bgDesktopOffer: require("../assets/images/offer/offer-banner.jpg"),
+    bgMobileOffer: require("../assets/images/offer/offer-banner.jpg")
+  })
+
+  //- Product section
+  +homePageProducts()
+
+  //- Benefits Section
+  +homePageBenefits()
+
+  //- Review Section
+  +homePageReview({})
+
+  img(src=require("../assets/images/home/banner-benefits-mobile.jpg") alt="banner mobile")
+  +ratingsReviewsBox({
+    additionalClass: "home"
+  })
+
+  //- More tips
+  +sliderTips({nbr: 3})

@@ -1,0 +1,465 @@
+.content-review {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin: 53px 0;
+
+  &-btn {
+    text-align: center;
+    margin-bottom: 55px;
+     a {
+       @include respond-to('small') {
+         width: 90%;
+       }
+     }
+  }
+
+  @include respond-to('medium') {
+    flex-direction: column;
+  }
+
+  @include respond-to('small') {
+   flex-direction: column;
+   margin-top: 30px!important;
+   margin-bottom: 66px!important;
+  }
+  .hero-banner__dots {
+    bottom: -40px!important;
+  }
+  .hero-banner__dots li div {
+    background-color: #ccd4dc;
+  }
+  .hero-banner__dots li.slick-active div {
+    background-color: $primary;
+  }
+}
+
+.review-heading {
+  @include respond-to('small') {
+    line-height: 32px;
+    font-size: 18px!important;
+  }
+}
+
+.review-block {
+  width: 33.3333333%;
+  padding: 0 30px;
+  @include respond-to('medium') {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  @include respond-to('small') {
+     width: 100%;
+     padding: 0 43px;
+  }
+
+  &__divider {
+    margin-left: 10px;
+    margin-right: 20px;
+    position: relative;
+    @include respond-to('small') {
+      margin-left: 6px;
+      margin-right: 12px;
+    }
+    &::before {
+      content:"";
+      position: absolute;
+      top: 50%;
+      width: 10px;
+      height: 1px;
+      background-color: #524b48;
+      @include respond-to('small') {
+        width: 8px;
+      }
+    }
+  }
+  &__divider--date {
+    margin-left: 5px;
+    margin-right: 5px;
+    @include respond-to('small') {
+      display: none!important;
+    }
+  }
+
+  &__name, &__title-review {
+    font-size: 21px;
+    @include respond-to('small') {
+      font-size: 14px;
+    }
+  }
+
+  &__date,&__rating,&__title-review {
+    margin-bottom: 23px;
+    @include respond-to('small') {
+      margin-bottom: 14px;
+    }
+  }
+
+  &__name {
+    margin-bottom: 15px;
+    // padding-left: 20px;
+    // padding-right: 20px;
+    @include respond-to('small') {
+      margin-bottom: 6px;
+      // padding-left: 20px;
+      // padding-right: 20px;
+    }
+    // @include respond-to('large') {
+    //   padding-left: 50px;
+    //   padding-right: 50px;
+    // }
+    span {
+      //margin-right: 0px;
+      @include respond-to('large') {
+        margin-right: 20px;
+      }
+    }
+    span.date {
+      display: block;
+      margin-right: 0px;
+      margin-top: 5px;
+      font-size: 12px;
+      @include respond-to('large') {
+        display: initial;
+        margin-top: 0px;
+        margin-right: 20px;
+      }
+    }
+  }
+
+  &__date {
+    font-size: 16px;
+    @include respond-to('small') {
+      font-size: 10px;
+      line-height: 18px;
+    }
+    strong {
+       @include respond-to('small') {
+         display: block;
+       }
+    }
+
+    span {
+      @include respond-to('small') {
+         display: block;
+      }
+    }
+  }
+
+  &__rating {
+    i {
+      font-size: 14px;
+    }
+    margin-top: 10px;
+    margin-bottom: 20px;
+    @include respond-to('large') {
+      margin-top: 0px;
+      margin-bottom: 23px;
+    }
+  }
+
+  &__description {
+    p {
+      font-size: 15px;
+      font-style: italic;
+      line-height: 1.5;
+      @include respond-to('small') {
+        font-size: 14px;
+      }
+    }
+  }
+  &__details-criteria {
+    display: flex;
+    text-align: center;
+    width: 100%;
+    &:first-child {
+      padding-top: 20px;
+    }
+    &:last-child {
+      padding-bottom: 20px;
+    }
+    span {
+      width: 50%;
+      text-align: right;
+      padding-right: 0px;
+      color: $primary;
+      font-size: 12px;
+      @include respond-to('large') {
+        padding-right: 10px;
+        font-size: 18px;
+      }
+    }
+    .rating {
+      width: 50%;
+      text-align: left;
+      padding-left: 10px;
+      font-size: 14px;
+      position: relative;
+      top: 0px;
+      @include respond-to('large') {
+        top: 4px;
+      }
+    }
+  }
+  &__img {
+    max-width: 500px;
+    margin: 0px auto;
+    img {
+      width: 100%;
+    }
+  }
+  &__ishelpful {
+    margin-top: 10px;
+    @include respond-to('large') {
+      margin-top: 30px;
+    }
+  }
+  &__isRecommended {
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: bold;
+    @include respond-to('large') {
+      margin-top: 20px;
+    }
+  }
+  &__question {
+    margin-top: 10px;
+    @include respond-to('large') {
+      margin-top: 30px;
+    }
+    p {
+      font-size: 14px;
+      @include respond-to('large') {
+        font-size: 18px;
+      }
+    }
+    .question-title {
+      color: $primary;
+      font-size: 14px;
+      @include respond-to('large') {
+        font-size: 18px;
+      }
+    }
+    .question-checkbox {
+      margin-top: 10px;
+      .label-checkbox {
+        margin-right: 20px;
+        font-size: 14px;
+        @include respond-to('large') {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  &__subtitlereview {
+    font-size: 12px;
+  }
+  &__ishelpful {
+    font-size: 14px;
+    @include respond-to('large') {
+      font-size: 18px;
+    }
+  }
+}
+
+.review-block-bg {
+  background: $footer;
+  max-width: 100%;
+  @include respond-to('large') {
+    max-width: 66%;
+    width: 66%;
+  }
+  .review-block-head {
+    float: right;
+    text-align: center;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 30px;
+    .review-block__rating {
+      margin-bottom: 10px;
+    }
+  }
+  .type-two {
+    text-align: center;
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 0px;
+    margin-top: 10px;
+    @include respond-to('large') {
+      text-align: center;
+      padding-bottom: 30px;
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+    .review-block__title-review {
+      width: 100%;
+      text-align: center;
+      @include respond-to('large') {
+        text-align: center;
+        width: auto;
+      }
+      strong {
+        width: 100%;
+      }
+    }
+    .review-block-read-more {
+      width: 100%;
+      text-align: center;
+      padding-top: 20px;
+      @include respond-to('large') {
+        text-align: center;
+      }
+      a {
+        text-decoration: none;
+        color: $primary;
+        font-size: 18px;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+    }
+    .review-block__description {
+      position: relative;
+      p {
+        width: 100%;
+        //max-height: 106px;
+        overflow: hidden;
+        padding-right: 10px;
+      }
+
+      /*p:before {
+        content: '...';
+        position: absolute;
+        right: 0;
+        bottom: 1px;
+        @media (min-width: 640px) {
+          bottom: -3px;
+        }
+      }
+    
+      p:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        width: 1em;
+        height: 1em;
+        margin-top: 0.2em;
+      }*/
+    }
+  }
+
+  .review-block-img {
+    float: left;
+    width: 160px;
+    padding-left: 30px;
+    padding-top: 30px;
+    .review-block__img-cercle {
+      width: 100px;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.content-review-contenaire {
+  margin: 0 auto;
+  margin-bottom: 67px;
+  max-width: 1180px;
+  width: 100%;
+  position: relative;
+  padding: 0 20px;
+  @include respond-to('large') {
+    padding: 0px;
+  }
+  .content-review {
+    margin: 25px 0 !important;
+  }
+}
+
+.content-ratings-reviews {
+  text-align: center;
+  &__title {
+    font-size: 18px;
+    color: $primary;
+    text-transform: uppercase;
+    @include respond-to('large') {
+      font-size: 31px;
+    }
+  }
+  &__ratings {
+    margin: 10px 0;
+  }
+  &__subtitle {
+    font-size: 15px;
+    padding: 0 20px;
+  }
+  &__list {
+    padding: 30px 0;
+    @include respond-to('large') {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+  &__btn {
+    padding-bottom: 20px;
+  }
+}
+
+.content-ratings {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  @include respond-to('large') {
+    width: 33%;
+    display: block;
+  }
+  &__title {
+    font-size: 14px;
+    color: $primary;
+    text-transform: uppercase;
+    width: 50%;
+    text-align: right;
+    padding-right: 10px;
+    @include respond-to('large') {
+      font-size: 16px;
+      text-align: center;
+      //padding-right: 0px;
+      width: 100%;
+    }
+  }
+  &__ratings {
+    padding-top: 0px;
+    width: 50%;
+    text-align: left;
+    @include respond-to('large') {
+      text-align: center;
+      padding-top: 10px;
+      width: 100%;
+    }
+  }
+}
+
+.content-review-filtre {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 20px;
+  @include respond-to('large') {
+    width: 66%;
+  }
+  select {
+    width: auto;
+  }
+}
+
+.js-review-btn-see {
+  display: none;
+}
+
+.content-review-contenaire {
+  .content-review-filtre {
+    display: none;
+  }
+}

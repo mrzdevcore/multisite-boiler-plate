@@ -1,0 +1,14 @@
+doctype html
+html(lang='en')
+  include ../components/index.pug
+  block vars
+    - var bodyClass = ''
+  block head
+
+  body(class=bodyClass)
+    block googleTagManagerBody
+    block header
+    main.wrapper.main-content
+      block content
+        section
+    block footer

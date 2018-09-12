@@ -1,0 +1,48 @@
+mixin Rating(options)
+  - var type = options.type || ''
+  - var dataNote = options.dataNote || "0"
+  - var total = options.total || ""
+  - var count = options.count || ""
+  - var ratingClass = options.ratingClass || ""
+  - var ratingIdProduct = options.ratingIdProduct || ""
+  - var dataReview = options.dataReview || "dogs"
+  - var dataProductId = options.dataProductId || ""
+
+  if type =='with-click'
+    if ratingIdProduct
+      span#js-with-click.rating(class=ratingClass, data-bvid=ratingIdProduct data-review=dataReview data-product-id=dataProductId)
+        i.icon-star-full
+        i.icon-star-full
+        i.icon-star-full
+        i.icon-star-full
+        i.icon-star-full
+    else
+      span#js-with-click.rating(class=ratingClass)
+        i.icon-star-full
+        i.icon-star-full
+        i.icon-star-full
+        i.icon-star-full
+        i.icon-star-full
+  else if type =='no-click'
+    if ratingIdProduct
+      span.rating(class=ratingClass data-note=dataNote data-bvid=ratingIdProduct data-review=dataReview data-product-id=dataProductId)
+        i.icon-star-full
+        i.icon-star-full
+        i.icon-star-full
+        i.icon-star-full
+        i.icon-star-full
+        if count
+          span.rating-count=count
+        if total
+          span.rating-total.js-review-total=total
+    else
+      span.rating(class=ratingClass data-note=dataNote)
+        i.icon-star-full
+        i.icon-star-full
+        i.icon-star-full
+        i.icon-star-full
+        i.icon-star-full
+        if count
+          span.rating-count=count
+        if total
+          span.rating-total.js-review-total=total

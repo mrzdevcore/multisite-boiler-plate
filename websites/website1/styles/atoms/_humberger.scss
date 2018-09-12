@@ -1,0 +1,47 @@
+.humberger {
+  cursor: pointer;
+  position: absolute;
+  padding: 17px;
+  margin: 0;
+  box-sizing: initial;
+  top: 0;
+  left: 0;
+  width: 20px;
+  z-index: 2;
+  &__line {
+    background-color: $primary;
+    height: 2px;
+    width: 20px;
+    margin-bottom: 3px;
+    transition: all 0.3s ease-in-out;
+    &--1.is-clicked {
+      transform: translateY(5px) rotate(45deg);
+      transform-origin: 50% 50%;
+    }
+    &--2.is-clicked {
+      transform:  translateX(-100%);
+      opacity: 0;
+    }
+    &--3.is-clicked {
+      transform:  translateY(-5px) rotate(-45deg);
+      transform-origin: 50% 50%;
+    }
+  }
+
+  .notif {
+    align-items: center;
+    display: flex;
+    font-size: 10px;
+    height: 18px;
+    justify-content: center;
+    left: auto;
+    position: absolute;
+    right: 9px;
+    top: 8px;
+    width: 18px;
+  }
+
+  @include respond-to('large') {
+    display: none;
+  }
+}

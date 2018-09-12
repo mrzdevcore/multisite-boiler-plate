@@ -1,0 +1,94 @@
+.introduction {
+  text-align: center;
+  &[data-theme="1"] {
+    .introduction {
+      &__title {
+        font-family: Roboto, sans-serif;
+        font-size: 41px;
+        font-weight: 300;
+        margin-bottom: 18px;
+        @include respond-to('medium') {
+          font-size: 25px;
+        }
+        @include respond-to('large') {
+          margin-top: -16px;
+        }
+        sup {
+          font-size: 15px;
+          position: relative;
+          top: -4px;
+        }
+      }
+      &__paragraph {
+        font-weight: 500;
+        word-spacing: 2px;
+        @include respond-to('medium') {
+          font-size: 16px;
+          margin: 0 -15px;
+          line-height: 25px;
+        }
+        strong {
+          color: $primary;
+          text-transform: uppercase;
+          font-weight: 500;
+        }
+        @include respond-to('large') {
+          line-height: 27px;
+        }
+        @include respond-to('larger') {
+          padding: 0 35px;
+          line-height: 27px;
+        }
+      }
+    }
+  }
+  &[data-theme="2"] {
+    background-color: $primary;
+    color: white;
+    padding-top: 28px;
+    padding-bottom: 32px;
+    @include respond-to('medium') {
+      padding: 20px 35px;
+    }
+    .introduction {
+      &__title {
+        font-size: 66px;
+        font-weight: bold;
+        margin-top: 4px;
+        margin-bottom: 18px;
+        br {
+          display: none;
+        }
+      }
+      &__paragraph {
+        font-size: 24px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+      }
+      &__footer {
+        font-size: 18px;
+      }
+      @include respond-to('medium') {
+        &__title {
+          font-size: 33px;
+          line-height: 35px;
+          margin-top: 0;
+          margin-bottom: 10px;
+          br {
+            display: block;
+          }
+        }
+        &__paragraph {
+          font-size: 14px;
+          margin-bottom: 5px;
+        }
+        &__footer {
+          font-size: 10px;
+        }
+      }
+    }
+  }
+  &--mbg {
+    margin-bottom: 48px;
+  }
+}

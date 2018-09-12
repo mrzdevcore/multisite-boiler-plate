@@ -1,0 +1,56 @@
+mixin section(options)
+  - var title = options.title || ""
+  - var boxes = options.boxes 
+  - var link = options.link
+  - var img = options.img 
+  - var bgDesktop = options.bgDesktop || ""
+  - var bgMobile = options.bgMobile || ""
+  - var boxCol = options.boxCol || ""
+  - var sectionClass = options.sectionClass
+  - var sectionBgClass = options.sectionBgClass
+  - var sectionImgClass = options.sectionImgClass || ""
+  - var titleClass = options.titleClass || ""
+  - var titleTheme = options.titleTheme || ""
+  - var hasButton = options.hasButton || true
+  - var btnText = options.btnText || ""
+  - var btnHref = options.btnHref || ""
+  - var btnClass = options.btnClass || "btn--primary btn--medium"
+  - var hasBackground = options.hasBackground || false
+  - var mobileFirst = options.img.mobileFirst || false
+  - var applyParallaxDesktop = options.applyParallaxDesktop || false
+
+  span.js-parallax-trigger
+  .section(class = sectionClass)
+    if hasBackground
+      .section__bg(class = sectionBgClass,data-parallax-desktop="true")
+        +img({
+          imgClass: "js-section__img section__img " + sectionImgClass,
+          desktop: img.desktop,
+          mobile: img.mobile,
+          alt: img.alt,
+          mobileFirst: img.mobileFirst
+        }) 
+    .content-section
+      h3.section__title(class=titleClass, data-theme=titleTheme) !{title}
+      .section__box(data-box-col=boxCol)
+        each box in boxes
+          +box({
+            type: "benefits",
+            img: box.img,
+            alt: box.alt,
+            title: box.title,
+            imgClass: box.imgClass,
+            titleClass: box.titleClass,
+            descriptionClass: box.descriptionClass,
+            description: box.description,
+            theme: box.theme
+          })
+      if hasButton
+        .section__btn
+          +Btn({
+            type: "link",
+            href: btnHref,
+            text: btnText,
+            class: btnClass
+          })
+

@@ -1,0 +1,124 @@
+.prBanner {
+  margin-bottom: 64px;
+  /* IE Fix */
+	@include fixOn('IE') {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $breakpoint-large;
+	}
+  &__description {
+    display: flex;
+    padding-left: 186px;
+  }
+  &__packshot {
+    margin-right: 80px;
+    margin-top: -107px;
+    max-width: 349px;
+    width: 100%;
+    z-index: 3;
+    img {
+      height: auto;
+      width: 100%;
+      cursor: zoom-in;
+    }
+    position:relative;
+  }
+  &__textual {
+    padding-top: 39px;
+
+    .content-ratings {
+      margin-bottom: 15px;
+    }
+  }
+  
+  &__cat {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    display:block; 
+    margin-top:-15px; 
+  }
+  &__recipies {
+    color: $primary;
+    font-size: 21px;
+    font-weight: normal;
+    margin-bottom: 24px;
+    max-width: 294px;
+    text-transform: uppercase;
+    width: 100%;
+    word-spacing: 6px;
+    display:block; 
+    line-height: 31px; 
+  }
+  &__cta {
+    margin-bottom: 26px;
+  }
+  &__avalaibilty {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    word-spacing: 4px;
+  }
+  sup {
+    font-size: 11px;
+    //left: -9px;
+    position: relative;
+    top: -12px;
+    letter-spacing: 0;
+  }
+  @include respond-to('medium') {
+    margin-bottom: 5px;
+    /* IE Fix */
+    @include fixOn('IE') {
+      margin-top: 48px;
+    }
+    &__description {
+      flex-direction: column;
+      padding: 0 20px;
+    }
+    &__packshot {
+      margin: 0;
+      margin-top: -90px;
+      width: 48%;
+      img {
+        height: auto;
+        max-width: 200px;
+        width: 100%;
+      }
+    }
+    &__textual {
+      padding-top: 6px;
+      text-align: center;
+      padding-bottom: 6px;
+    }
+    &__name {
+      margin-bottom: 4px;
+      line-height: 30px;
+    }
+    &__cat {
+      font-size: 10px;
+      margin-top:0px;
+    }
+    &__recipies {
+      font-size: 16px;
+      line-height: 26px;
+      margin: 0 auto;
+      margin-bottom: 8px;
+      max-width: 240px;
+      word-spacing: 2px;
+    }
+    &__cta {
+      margin-bottom: 22px;
+    }
+    &__avalaibilty {
+      font-size: 10px;
+      word-spacing: 0px;
+    }
+    sup {
+      top: 0;
+      left: 0;
+    }
+  }
+
+}

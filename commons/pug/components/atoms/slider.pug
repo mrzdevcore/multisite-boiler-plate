@@ -1,0 +1,29 @@
+mixin slider(options)
+  - var min = options.min || 0
+  - var max = options.max || 4
+  - var step = options.step || 1
+  - var dotStep = options.dotStep || 1
+  - var unit = options.unit || "kg"
+  - var defaultValue = options.defaultValue || 2
+  - var inputName = options.inputName || "slider"
+  - var theme = options.theme || "1"
+  - var possibleValue = options.possibleValue || ""
+  - var name = options.name || "name"
+
+  .slider(data-slider="",
+          data-theme=theme,
+          data-start=min,
+          data-end=max,
+          data-step=step,
+          data-unit=unit,
+          data-initial-start=defaultValue,
+          data-dot-step=dotStep,
+          data-possible-value=possibleValue)&attributes(attributes)
+    span.slider-handle(data-slider-handle, 
+      role="slider",
+      aria-valuemin=min,
+      aria-valuemax=max,
+      aria-valuenow=defaultValue)
+      span.slider-tooltip
+    span.slider-fill(data-slider-fill="")
+    input(type="hidden",name=name)

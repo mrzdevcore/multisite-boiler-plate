@@ -1,0 +1,99 @@
+.benefits {
+  text-decoration: none;
+  color: $text;
+  @include respond-to('small') {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  @include respond-to('large') {
+    max-width: 475px;
+  }
+
+  @include respond-to('larger') {
+    max-width: 550px;
+  }
+
+  &-container {
+    @include respond-to('large') {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+  }
+
+  &-heading {
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    line-height: 24px;
+    padding: 10px;
+    text-align: center;
+    word-spacing: 2px;
+    strong{
+      color: $primary;
+    }
+
+    @include respond-to('medium') {
+      padding: 30px 10px 15px 10px;
+    }
+
+    @include respond-to('large') {
+      padding: 38px 0;
+      font-size: 30px;
+      line-height: 41px;
+    }
+  }
+
+  &-text {
+    padding: 18px 0;
+    padding-bottom: 50px;
+    h3 {
+      font-weight: 300;
+    }
+
+    p {
+      padding-top: 10px;
+      line-height: 25px;
+
+      @include respond-to('medium') {
+        font-size: 14px;
+      }
+
+      @include respond-to('large') {
+        font-size: 15px;
+        padding: 23px 0;
+      }
+    }
+  }
+  img {
+    width: 100%;
+  }
+}
+
+@supports (-ms-ime-align: auto) {
+  .benefits {
+    @include respond-to('large') {
+      max-width: 550px;
+    }
+  }
+}
+
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  
+  .benefits {
+    @include respond-to('large') {
+      max-width: 550px;
+    }
+  }
+}
+
+.title-sup {
+    position: relative;
+    top: 0;
+    font-size: 15px;
+
+    @include respond-to('medium') {
+      top: -2px;
+      font-size: 10px;
+    }
+}

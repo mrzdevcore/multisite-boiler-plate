@@ -1,0 +1,317 @@
+.banner {
+	align-items: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+  background-color: $bg-primary;
+	height: 400px;
+	overflow: hidden;
+  position: relative;
+	/* IE Fix */
+	@include fixOn('IE') {
+		margin: 80px auto 0 auto;
+		max-width: $breakpoint-large;
+	}
+	&__textual {
+		left: 130px;
+    letter-spacing: 5px;
+    top: 140px;
+
+    @include respond-to('large') {
+      position: absolute;
+    }
+  }
+
+
+	&__title {
+		font-size: 30px;
+		font-weight: 100;
+		line-height: 40px;
+    text-transform: uppercase;
+
+    @include respond-to('medium') {
+      font-weight: 300;
+    }
+		// margin-bottom: 30px;
+		strong {
+			font-weight: 700;
+			line-height: 0;
+    }
+    @include respond-to('small-tablet') {
+      font-size: 40px;
+      line-height: 50px;
+    }
+		@include respond-to('large') {
+			font-size: 81px;
+      line-height: 80px;
+		}
+		/*@include respond-to('medium') {
+			font-size: 40px;
+			line-height: 40px;
+		}*/
+	}
+	&__description {
+		padding-left: 9px;
+		letter-spacing: 2px;
+	}
+	&[data-theme="white"] {
+		color: $white;
+	}
+	&[data-text-position="static"] {
+		.banner__title {
+			margin-bottom: 0;
+		}
+		@include respond-to('medium') {
+			padding-bottom: 0;
+		}
+		.banner__textual {
+			align-items: center;
+			display: flex;
+			height: 100%;
+			padding-left: 130px;
+			position: static;
+			@include respond-to('medium') {
+				align-items: flex-end;
+				padding-left: 20px;
+				padding-bottom: 40px;
+			}
+		}
+
+	}
+	&--home {
+    height: 499px;
+    .banner__textual {
+      position: absolute;
+    }
+
+		&[data-text-position="left"] {
+			.banner__textual {
+				left: 125px;
+				top: 75px;
+				@include respond-to('medium') {
+					left: 20px;
+					top: 170px;
+				}
+			}
+		}
+		&[data-text-position="center"] {
+			.banner__textual {
+				align-items: center;
+				display: flex;
+				justify-content: center;
+				flex-direction: column;
+				padding-top: 86px ;
+				position: static;
+				@include respond-to('medium') {
+					padding-top: 170px;
+				}
+			}
+		}
+		&[data-text-position="right"] {
+			display: flex;
+			justify-content: flex-end;
+			.banner__textual {
+				align-items: flex-end;
+				display: flex;
+				flex-direction: column;
+				right: 134px;
+				top: 86px;
+				@include respond-to('medium') {
+					right: 20px;
+					top: 170px;
+				}
+			}
+		}
+		&.banner--with-cta {
+			background-size: cover;
+			@include respond-to('small-desktop') {
+				background-size: contain;
+				background-color: $bg-primary;
+			}
+			@include respond-to('medium') {
+				background-size: contain;
+				background-position: center top!important;
+			}
+			.banner__cta {
+				position: absolute;
+				bottom: 84px;
+				left: 23%;
+				@include respond-to('small-desktop') {
+					bottom: 187px;
+					left: 20%;
+				}
+				@include respond-to('medium') {
+
+					bottom: 84px;
+					left: 50%;
+					transform: translateX(-50%);
+					white-space: nowrap;
+				}
+			}
+		}
+	}
+	&--large {
+		height: 500px;
+	}
+	&.responsive {
+		height: initial;
+		padding-bottom: calc(100% * 500/1400);
+	}
+	@include respond-to('medium') {
+		align-items: flex-end;
+    height: 265px;
+    display: flex;
+		padding-bottom: 42px;
+		/* IE Fix */
+    @include fixOn('IE') {
+      margin-top: 48px;
+    }
+
+
+		&__textual {
+      padding-left: 20px;
+		}
+		&__description {
+			font-size: 16px;
+			padding-left: 0;
+			letter-spacing: 0;
+		}
+		&--home {
+			height: 377px;
+		}
+
+		&--large {
+			height: 400px;
+		}
+	}
+
+	.article__video-thumbnail {
+		position: static;
+
+		&::after {
+			@include respond-to('medium') {
+				top: 17%;
+			}
+		}
+	}
+
+	&--offer {
+		.banner__link {
+			display: block;
+			outline: none;
+			height: 100%;
+			text-indent: -9999px;
+			width: 100%;
+		}
+	}
+}
+
+.banner--editorial {
+	height: 450px;
+
+	@include respond-to('large') {
+		height: 499px;
+	}
+		&[data-text-position="left"] {
+			.banner__textual {
+				left: 125px;
+				top: 75px;
+				@include respond-to('medium') {
+					left: 0;
+					top: 115px;
+					position: relative;
+				}
+
+				@include respond-to('large') {
+					max-width: 30%;
+				}
+
+				.banner__title {
+					font-size: 28px;
+					word-spacing: 0;
+					line-height: 40px;
+
+					@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+						font-size: 24px;
+					}
+
+					@include respond-to('large') {
+						font-size: 35px;
+						line-height: 45px;
+					}
+
+					span {
+						font-weight: 700;
+						line-height: 0;
+					}
+				}
+			}
+		}
+		&[data-text-position="center"] {
+			.banner__textual {
+				align-items: center;
+				display: flex;
+				justify-content: center;
+				flex-direction: column;
+				padding-top: 86px ;
+				position: static;
+				@include respond-to('medium') {
+					padding-top: 170px;
+				}
+			}
+		}
+		&[data-text-position="right"] {
+			display: flex;
+			justify-content: flex-end;
+			.banner__textual {
+				align-items: flex-end;
+				display: flex;
+				flex-direction: column;
+				right: 134px;
+				top: 86px;
+				@include respond-to('medium') {
+					right: 20px;
+					top: 170px;
+				}
+			}
+		}
+		&.banner--with-cta {
+			background-size: cover;
+			@include respond-to('small-desktop') {
+				background-size: cover;
+				background-color: $bg-primary;
+			}
+			@include respond-to('medium') {
+				background-size: cover;
+				background-position: center top!important;
+			}
+			.banner__cta {
+				position: absolute;
+				bottom: 50px;
+				left: 9%;
+				@include respond-to('small-desktop') {
+					bottom: 11%;
+					left: 14%;
+				}
+				@include respond-to('medium') {
+
+					bottom: 50px;
+					transform: translateX(-4%);
+					white-space: nowrap;
+				}
+
+				@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+					bottom: 70px;
+					left: 12%;
+					transform: translateX(-50%);
+					white-space: nowrap;
+				}
+
+				@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1)  {
+					bottom: 70px;
+					left: 22%;
+					transform: translateX(-50%);
+					white-space: nowrap;
+				}
+			}
+		}
+}

@@ -1,0 +1,225 @@
+.product {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 23px 0;
+  text-align: center;
+  text-transform: uppercase;
+  width: 50%;
+
+  @include respond-to('medium') {
+    padding: 20px;
+  }
+
+  @include respond-to('small') {
+    padding: 0px;
+  }
+
+  @include respond-to('large') {
+    margin-bottom: 70px;
+    //margin-top: 20px;
+    margin-top: 7px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 23%;
+  }
+
+  @include respond-to('small-desktop') {
+    width: 22%;
+  }
+
+  &.hide {
+    display: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    width: 100%;
+  }
+
+  .btn {
+    max-width: 250px;
+    &--full {
+      max-width: 100%;
+      @include respond-to('large') {
+        max-width: 250px;
+      }
+    }
+  }
+
+  &__btn {
+    a {
+      color: $white;
+    }
+  }
+
+  .packshot {
+    margin-bottom: 22px;
+    padding-bottom: 80%;
+    position: relative;
+
+    @include respond-to('large') {
+      margin-bottom: 42px;
+    }
+
+    img {
+      bottom: 0;
+      height: auto;
+      left: 0;
+      margin: 0 auto;
+      max-width: 214px;
+      position: absolute;
+      right: 0;
+      width: 100%;
+
+      @include respond-to('medium') {
+        max-width: 70%;
+        top: 0; /* Mobile fix */
+      }
+    }
+  }
+
+  &__title {
+    font-size: 12px;
+    font-family: Roboto, sans-serif;
+    line-height: 12px;
+    margin-top: 0;
+
+    @include respond-to('large') {
+      line-height: 25px;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    @include respond-to('medium') {
+      line-height: 25px;
+      font-size: 16px;
+    }
+    @include respond-to('small') {
+      line-height: 12px;
+      font-size: 11px;
+    }
+
+    sup {
+      font-size: 5px;
+      left: 0px;
+      letter-spacing: 0;
+      position: relative;
+      top: -4px;
+      @include respond-to('medium') {
+        font-size: 5px;
+        top: -1px;
+        left: 0px;
+      }
+    }
+  }
+
+  &__subtitle {
+    font-size: 10px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    margin-top: 5px;
+
+    @include respond-to('large') {
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+    @include respond-to('medium') {
+      font-size: 13px;
+    }
+    @include respond-to('small') {
+      font-size: 10px;
+    }
+  }
+
+  &__rating {
+    padding-top: 0px;
+    padding-bottom: 5px;
+    @include respond-to('large') {
+      padding-top: 0px;
+      padding-bottom: 10px;
+    }
+  }
+
+  &__desc {
+    color: $primary;
+    font-size: 10px;
+    margin-bottom: 18px;
+    margin-top: 0;
+
+    @include respond-to('large') {
+      font-size: 18px;
+      margin-bottom: 24px;
+      padding: 0 25px;
+    }
+    @include respond-to('medium') {
+      font-size: 13px;
+    }
+    @include respond-to('small') {
+      font-size: 10px;
+    }
+  }
+
+  .description {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+.pack-container {
+  align-items: flex-start;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+  @include respond-to('medium') {
+    margin-bottom: 40px;
+  }
+}
+
+.v--modal-box {
+  .product__title {
+      @include respond-to('large') {
+          margin-bottom: 10px;
+      }
+  }
+} 
+
+
+.prBanner__textual {
+  h1.prBanner__name {
+    font-size: 24px;
+    line-height: 24px;
+    word-spacing: 0px;
+    @include respond-to('large') {
+      font-size: 41px;
+      line-height: 51px;
+    }
+
+    .prBanner__cat {
+      @include respond-to('large') {
+        margin-bottom: 0;
+      }
+    }
+    .content-ratings {
+      font-size: 20px;
+        @include respond-to('large') {
+          margin-bottom: 0;
+        }
+    }
+  }
+  h1.prBanner__cat {
+    line-height: 1;
+    word-spacing: 0px;
+  }
+  h1.prBanner__recipies {
+    line-height: 26px;
+    word-spacing: 0px;
+  }
+  h2.prBanner__avalaibilty {
+    line-height: 1;
+    word-spacing: 0px;
+    letter-spacing: 0px;
+  }
+}

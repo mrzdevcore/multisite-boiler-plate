@@ -1,0 +1,11 @@
+mixin Select(options)
+  - classInput = options.class || ""
+  - id = options.id || ""
+  - name = options.name || ""
+  - data = options.data || []
+  - valueDefault = options.default || []
+  
+  select(id = id, class=classInput, name=name)&attributes(attributes)
+    option(value="" disabled selected label=options.valueDefault class="select-default")!=valueDefault
+    each element in data
+      option(value=element.key)= element.value
