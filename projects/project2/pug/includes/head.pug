@@ -1,0 +1,21 @@
+head
+	meta(charset='UTF-8')
+	meta(http-equiv='X-UA-Compatible', content='IE=edge')
+	meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+	meta(name='msapplication-tap-highlight', content='no')
+	link(rel='manifest', href='manifest.json')
+	meta(name="mobile-web-app-capable", content="yes")
+	meta(name="application-name", content="your awesome website")
+	link(rel="icon", sizes="192x192", href="images/touch/chrome-touch-icon-192x192.png")
+	meta(name="apple-mobile-web-app-capable", content="yes")
+	meta(name="apple-mobile-web-app-status-bar-style", content="black")
+	meta(name="apple-mobile-web-app-title", content="Nutro")
+	link(rel="apple-touch-icon", href="images/touch/apple-touch-icon.png")
+	link(rel='shortcut icon', href='favicon.ico')
+	meta(name='theme-color', content='#513c79')
+	title #{pageTitle}
+	style
+		block critical
+	include gtm-head.pug
+	block styles
+		link(href='/scripts/styles.css', rel='stylesheet', media='all')

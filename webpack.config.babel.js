@@ -10,9 +10,7 @@ import VueLoaderPlugin from 'vue-loader/lib/plugin';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import HhtmlWebpackInlineSourcePlugin from 'html-webpack-inline-source-plugin';
 import yargs from 'yargs';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 
 let argv = yargs.usage('Usage: $0 <command> [options]')
@@ -21,10 +19,15 @@ let argv = yargs.usage('Usage: $0 <command> [options]')
               type: 'string',
               default: 'development',
               describe: 'production | development'
+            },
+            project: {
+              type: 'string',
+              default: 'project1',
+              describe: 'name of project'
             }
           }).argv;
 let env = argv.env || argv.E;
-let website = argv.website || 'website1';
+let project = argv.project || 'project1';
 function composeConfig(env) {
   if (env === 'development') {
     return _.merge({}, appConfig, appConfigDev);
@@ -38,19 +41,19 @@ function composeConfig(env) {
 module.exports = {
   target: "web",
   entry: {
-    'main': `./websites/${website}/scripts/index.ts`,
-    'critical': `./websites/${website}/scripts/critical.ts`,
-    'assets': `./websites/${website}/assets.ts`
+    'main': `./projects/${project}/scripts/index.ts`,
+    'critical': `./projects/${project}/scripts/critical.ts`,
+    'assets': `./projects/${project}/assets.ts`
   },
   devtool: "source-map",
   output: {
     publicPath: '/',
-    path: path.join(__dirname, `dist/${website}`),
+    path: path.join(__dirname, `dist/${project}`),
     filename: 'scripts/[name].app.js',
     chunkFilename: 'scripts/[name].chunk.js'
   },
   devServer: {
-    contentBase: path.join(__dirname, `dist/${website}`),
+    contentBase: path.join(__dirname, `dist/${project}`),
     watchContentBase: true,
     compress: true,
     open: true,
@@ -171,11 +174,11 @@ module.exports = {
       chunkFilename: "styles/[id].css"
     }),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, `/websites/${website}/pug/home-page.pug`),
+      template: path.join(__dirname, `/projects/${project}/pug/home-page.pug`),
       filename: "home.html"
     }),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, `/websites/${website}/pug/edito.pug`),
+      template: path.join(__dirname, `/projects/${project}/pug/edito.pug`),
       filename: "edito.html"
     })
   ]
