@@ -11,6 +11,7 @@ import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import yargs from 'yargs';
+import GenerateHtml from './scripts/generate-html.balel';
 
 
 let argv = yargs.usage('Usage: $0 <command> [options]')
@@ -22,12 +23,12 @@ let argv = yargs.usage('Usage: $0 <command> [options]')
             },
             project: {
               type: 'string',
-              default: 'project1',
+              default: 'project2',
               describe: 'name of project'
             }
           }).argv;
 let env = argv.env || argv.E;
-let project = argv.project || 'project1';
+let project = argv.project || 'project2';
 function composeConfig(env) {
   if (env === 'development') {
     return _.merge({}, appConfig, appConfigDev);
@@ -172,15 +173,7 @@ module.exports = {
       // both options are optional
       filename: "styles/[name].css",
       chunkFilename: "styles/[id].css"
-    }),
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, `/projects/${project}/pug/home-page.pug`),
-      filename: "home.html"
-    }),
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, `/projects/${project}/pug/edito.pug`),
-      filename: "edito.html"
     })
-  ]
+  ].concat(GenerateHtml(project))
 }
 

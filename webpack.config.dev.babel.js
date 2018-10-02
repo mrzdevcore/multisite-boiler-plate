@@ -8,9 +8,7 @@ import webpack from 'webpack';
 import _ from 'lodash';
 import VueLoaderPlugin from 'vue-loader/lib/plugin';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import HhtmlWebpackInlineSourcePlugin from 'html-webpack-inline-source-plugin';
+import GenerateHtml from './scripts/generate-html.balel';
 import yargs from 'yargs';
 
 let argv = yargs.usage('Usage: $0 <command> [options]')
@@ -148,18 +146,7 @@ module.exports = {
       $:      "jquery",
       jQuery: "jquery"
     }),
-    new VueLoaderPlugin(),
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, `/projects/${project}/pug/home-page.pug`)
-    }),
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, `/projects/${project}/pug/home-page.pug`),
-      filename: "home.html"
-    }),
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, `/projects/${project}/pug/edito.pug`),
-      filename: "edito.html"
-    })
-  ]
+    new VueLoaderPlugin()
+  ].concat(GenerateHtml(project))
 }
 

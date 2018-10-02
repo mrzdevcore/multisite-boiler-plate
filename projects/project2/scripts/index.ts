@@ -1,6 +1,3 @@
-import 'magnific-popup/dist/jquery.magnific-popup';
-import 'bootpag/lib/jquery.bootpag.min';
-
 import * as ES6Promise from 'es6-promise';
 ES6Promise.polyfill();
 

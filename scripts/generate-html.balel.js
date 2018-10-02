@@ -4,7 +4,7 @@ import fs from 'fs';
 
 export const renderHtml = (programs) => {
   const fileList = [];
-  fs.readdirSync(path.join(__dirname, `../websites/${programs}/pug/`)).forEach(file => {
+  fs.readdirSync(path.join(__dirname, `../projects/${programs}/pug/`)).forEach(file => {
     if (/\.pug$/.test(file)) {
       const name = `${file}`.replace('.pug', '');
       fileList.push({
@@ -16,7 +16,7 @@ export const renderHtml = (programs) => {
   return fileList.map(file => {
     return new HtmlWebpackPlugin({
       filename: file.name + '.html',
-      template: path.join(__dirname, `../websites/${programs}/pug/${file.file}`)
+      template: path.join(__dirname, `../projects/${programs}/pug/${file.file}`)
     });
   });
 }
