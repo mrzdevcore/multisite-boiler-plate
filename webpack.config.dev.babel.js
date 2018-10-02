@@ -42,6 +42,11 @@ module.exports = {
     compress: true,
     open: true,
     port: 9001,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:7000'
+      }
+    }
   },
   stats: {
     assets: false,

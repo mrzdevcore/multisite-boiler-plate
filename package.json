@@ -63,7 +63,7 @@
   "scripts": {
     "test": "",
     "build": "rimraf -rf dist && webpack -p --env production",
-    "serve": "webpack-dev-server --config webpack.config.dev.babel.js",
+    "serve": "start node ./services/server.js && webpack-dev-server --config webpack.config.dev.babel.js",
     "clean": "rimraf dist",
     "deploy": "npm run clean && npm run build && firebase deploy"
   },
