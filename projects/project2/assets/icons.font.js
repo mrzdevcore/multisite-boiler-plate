@@ -2,7 +2,7 @@ module.exports = {
   'files': [
     './svg-icons/*.svg'
   ],
-  'fontName': 'greenies',
+  'fontName': 'g',
   'classPrefix': 'icon-',
   'baseSelector': '.icon',
   'types': ['eot', 'woff', 'woff2', 'ttf', 'svg'],

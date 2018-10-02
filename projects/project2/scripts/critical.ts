@@ -8,7 +8,7 @@
 
 class Critical {
   public executeOnLoad(): void {
-    console.info('this is critical');
+    console.info('this so critical that you are forbidden to use library');
   }
 }
 

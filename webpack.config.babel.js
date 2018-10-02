@@ -1,18 +1,13 @@
-// Import all app configs
-const appConfig = require('./config/main');
-const appConfigDev = require('./config/dev');
-const appConfigProduction = require('./config/prod');
-
 import path from 'path';
 import webpack from 'webpack';
 import _ from 'lodash';
 import VueLoaderPlugin from 'vue-loader/lib/plugin';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
 import yargs from 'yargs';
 import GenerateHtml from './scripts/generate-html.balel';
 
+import Config from './config/main';
 
 let argv = yargs.usage('Usage: $0 <command> [options]')
           .options({
@@ -27,17 +22,11 @@ let argv = yargs.usage('Usage: $0 <command> [options]')
               describe: 'name of project'
             }
           }).argv;
-let env = argv.env || argv.E;
-let project = argv.project || 'project2';
-function composeConfig(env) {
-  if (env === 'development') {
-    return _.merge({}, appConfig, appConfigDev);
-  }
 
-  if (env === 'production') {
-    return _.merge({}, appConfig, appConfigProduction);
-  }
-}
+let env = argv.env || argv.E;
+let project = argv.project || argv.P;
+
+const config = new Config().generate(env);
 
 module.exports = {
   target: "web",
@@ -158,7 +147,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      __APP_CONFIG__: JSON.stringify(composeConfig(env)),
+      __APP_CONFIG__: JSON.stringify(config),
       'process.env': {
         'NODE_ENV': JSON.stringify(env)
       }
