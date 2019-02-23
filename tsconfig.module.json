@@ -12,12 +12,12 @@
     "baseUrl": "."
   },
   "include": [
-    "commons/**/*.ts",
-    "programs/**/*.tsx",
+    "commons//**//*.ts",
+    "programs//**//*.tsx",
     "commons/**/*.vue"
   ],
   "exclude": [
     "node_modules",
-    "/**/*"
+    "//**//*"
   ]
 }
